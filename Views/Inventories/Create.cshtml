@@ -1,0 +1,62 @@
+﻿@model Inventory_MS.Models.ViewModel
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Inventory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group ">
+                <label asp-for="Inventory.Type" class="control-label"></label>
+                @Html.DropDownListFor(m => m.Inventory.Type,
+            new SelectList(Enum.GetValues(typeof(Code))),
+            "Select Type",new { @class="form-control"})
+             <span asp-validation-for="Inventory.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventory.Items" class="control-label"></label>
+                <input asp-for="Inventory.Items" class="form-control" />
+                <span asp-validation-for="Inventory.Items" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventory.DateIn" class="control-label"></label>
+                <input asp-for="Inventory.DateIn" class="form-control" />
+                <span asp-validation-for="Inventory.DateIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventory.Status" class="control-label"></label>
+                <input asp-for="Inventory.Status" class="form-control" />
+                <span asp-validation-for="Inventory.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventory.Departments" class="control-label"></label>
+                <input asp-for="Inventory.Departments" class="form-control" />
+                <span asp-validation-for="Inventory.Departments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventory.Remarks" class="control-label"></label>
+                <input asp-for="Inventory.Remarks" class="form-control" />
+                <span asp-validation-for="Inventory.Remarks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

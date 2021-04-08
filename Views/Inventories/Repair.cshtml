@@ -1,0 +1,59 @@
+﻿@model Inventory_MS.Models.ViewModel
+
+@{
+    ViewData["Title"] = "Repair";
+}
+
+<h1>Repair</h1>
+
+<h4>RepairRecord</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+                   
+            <form asp-action="Repair">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Repair.ObjectID" class="control-label"></label>
+                    <input asp-for="Repair.ObjectID" class="form-control" />
+                    <span asp-validation-for="Repair.ObjectID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Repair.Supplier" class="control-label"></label>
+                    <input asp-for="Repair.Supplier" class="form-control" />
+                    <span asp-validation-for="Repair.Supplier" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Repair.Payment" class="control-label"></label>
+                    <input asp-for="Repair.Payment" class="form-control" />
+                    <span asp-validation-for="Repair.Payment" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Repair.Remarks" class="control-label"></label>
+                    <input asp-for="Repair.Remarks" class="form-control" />
+                    <span asp-validation-for="Repair.Remarks" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Repair.DateSend" class="control-label"></label>
+                    <input asp-for="Repair.DateSend" class="form-control" />
+                    <span asp-validation-for="Repair.DateSend" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Repair.DateBack" class="control-label"></label>
+                    <input asp-for="Repair.DateBack" class="form-control" />
+                    <span asp-validation-for="Repair.DateBack" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Add" class="btn btn-primary" />
+                </div>
+            </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
